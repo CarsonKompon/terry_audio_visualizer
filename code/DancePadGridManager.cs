@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using Sandbox;
-using CUtils.Components;
-using System.Diagnostics;
 using System;
 
 public sealed class DancePadGridManager : Component

@@ -1,7 +1,7 @@
 {
   "Title": "Terry Audio Visualizer",
   "Type": "game",
-  "Org": "local",
+  "Org": "carsonk",
   "Ident": "terry_audio_visualizer",
   "Tags": null,
   "Schema": 1,
@@ -28,7 +28,8 @@
     "PerMapRanking": false,
     "LeaderboardType": "None",
     "CsProjName": "",
-    "StartupScene": "scenes/minimal.scene",
-    "ProjectTemplate": null
+    "StartupScene": "visualizer.scene",
+    "ProjectTemplate": null,
+    "LaunchMode": "Normal"
   }
 }

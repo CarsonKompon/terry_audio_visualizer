@@ -10,25 +10,77 @@
 	@if(SettingsOpen)
 	{
 		<div class="settings">
-			<h1>Audio Settings</h1>
+
+			<h1><i>volume_up</i>Audio Settings</h1>
 			<div class="setting">
+				<i>bar_chart</i>
 				<p>Peak Threshold</p>
 				<div class="peak-slider">
-					<SliderControl Value:bind=@MusicManager.PeakThreshold Min=@(-1f) Max=@(3f) Step=@(0.001f) />
+					<SliderControl Value:bind=@MusicManager.PeakThreshold Min=@(0f) Max=@(3f) Step=@(0.001f) />
 					<div class="peak-fill" style="width: @(MathF.Min(MathX.Remap(MusicManager.Energy, 0f, 3f, 0f, 1f), 1f) * 100)%; @(MusicManager.IsPeaking ? "background-color: lime;" : "background-color: white;") "></div>
 					<div class="peak-fill target" style="width: @(MathF.Min(MathX.Remap(MusicManager.EnergyHistoryAverage + MusicManager.AdjustedPeakThreshold, 0f, 3f, 0f, 1f), 1f) * 100)%"></div>
 				</div>
 			</div>
-			<h1>Camera Settings</h1>
+
+			<h1><i>videocam</i>Camera Settings</h1>
 			<div class="setting">
+				<i>details</i>
+				<p>Sharpen</p>
+				<SliderControl Value:bind=@Sharpen.Scale Min=@(0) Max=@(5f) Step=@(0.01f) />
+			</div>
+			<div class="setting">
+				<i>flare</i>
 				<p>Bloom</p>
 				<SliderControl Value:bind=@Bloom.Strength Min=@(0) Max=@(10f) Step=@(0.01f) />
 			</div>
-			<h1>Visualizer Ring</h1>
 			<div class="setting">
+				<i>apps</i>
+				<p>Pixelate</p>
+				<SliderControl Value:bind=@Pixelate.Scale Min=@(0) Max=@(1f) Step=@(0.001f) />
+			</div>
+
+			<h1><i>graphic_eq</i>Visualizer Ring</h1>
+			<div class="setting">
+				<i>fit_screen</i>
+				<p>Ring Radius</p>
+				<SliderControl Value:bind=@BarManager.RingRadius Min=@(125) Max=@(1000) Step=@(1) />
+			</div>
+			<div class="setting">
+				<i>aspect_ratio</i>
 				<p>Bar Width</p>
 				<SliderControl Value:bind=@BarManager.BarWidth Min=@(0) Max=@(0.2f) Step=@(0.001f) />
 			</div>
+			<div class="setting">
+				<i>view_week</i>
+				<p>Bar Count</p>
+				<SliderControl Value:bind=@BarManager.BarCount Min=@(32) Max=@(512) Step=@(64) />
+			</div>
+			<div class="setting">
+				<i>all_inclusive</i>
+				<p>Wavyness</p>
+				<SliderControl Value:bind=@BarManager.BarWavyness Min=@(0) Max=@(8) Step=@(1) />
+			</div>
+			<div class="setting">
+				<i>waves</i>
+				<p>Wave Speed</p>
+				<SliderControl Value:bind=@BarManager.WaveSpeed Min=@(0) Max=@(10) Step=@(0.01f) />
+			</div>
+			<div class="setting">
+				<i>height</i>
+				<p>Wave Amplitude</p>
+				<SliderControl Value:bind=@BarManager.BarWavynessAmplitude Min=@(0) Max=@(64) Step=@(0.01f) />
+			</div>
+			<div class="setting">
+				<i>undo</i>
+				<p>Spin Amount</p>
+				<SliderControl Value:bind=@BarManager.SpinOnBeat Min=@(-64) Max=@(64) Step=@(0.01f) />
+			</div>
+			<div class="setting">
+				<i>360</i>
+				<p>Rotate Speed</p>
+				<SliderControl Value:bind=@BarRotator.RotateSpeed Min=@(-64) Max=@(64) Step=@(0.01f) />
+			</div>
+
 		</div>
 	}
 </root>
@@ -37,7 +89,10 @@
 {
 	[Property] public MusicManager MusicManager { get; set; }
 	[Property] public VisualizerBarManager BarManager { get; set; }
+	[Property] public BarRotator BarRotator { get; set; }
+	[Property] public Sharpen Sharpen { get; set; }
 	[Property] public Bloom Bloom { get; set; }
+	[Property] public Pixelate Pixelate { get; set; }
 	bool SettingsOpen = false;
 
 	void SettingsButtonPressed()

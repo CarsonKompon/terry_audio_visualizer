@@ -57,6 +57,11 @@
           "Strength": 1,
           "Threshold": 0.02,
           "ThresholdWidth": 0
+        },
+        {
+          "__type": "Pixelate",
+          "__enabled": true,
+          "Scale": 0
         }
       ]
     },
@@ -169,7 +174,7 @@
           "__type": "MusicManager",
           "__enabled": true,
           "Loop": true,
-          "PeakThreshold": 1.08,
+          "PeakThreshold": 1.06,
           "Url": "https://donglekumquatarchive.com/Archive/Albums/Hoofdachest/Hoofdachest%20(instrumental).wav"
         }
       ]
@@ -483,11 +488,7 @@
                       "__type": "DancingCitizen",
                       "__enabled": true,
                       "AnimationHelper": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
-                      "LeftFootObject": "20eec2dc-53b5-41ba-be10-fe857c612d50",
-                      "LeftHandObject": "76c11500-454b-4975-b27e-9fed5725b9f2",
-                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
-                      "RightFootObject": "17b4787f-1a58-4800-a43d-cb868af21f82",
-                      "RightHandObject": "f3ab2e80-bae0-4b4c-bdd5-71d79a047c37"
+                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963"
                     }
                   ],
                   "Children": [
@@ -903,9 +904,19 @@
             {
               "__type": "VisualizerBarManager",
               "__enabled": true,
+              "BarWavyness": 4,
+              "BarWavynessAmplitude": 32,
               "BarWidth": 0.1,
               "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
-              "Prefab": "9534d346-e127-4f08-aa85-2bb953630a7a"
+              "Prefab": "9534d346-e127-4f08-aa85-2bb953630a7a",
+              "RingRadius": 400,
+              "SpinOnBeat": 10,
+              "WaveSpeed": 1
+            },
+            {
+              "__type": "BarRotator",
+              "__enabled": true,
+              "RotateSpeed": 0
             }
           ],
           "Children": [
@@ -949,8 +960,11 @@
           "__type": "DancePanel",
           "__enabled": true,
           "BarManager": "07cde167-ac19-4f8d-9604-59083e55a461",
+          "BarRotator": "07cde167-ac19-4f8d-9604-59083e55a461",
           "Bloom": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
-          "MusicManager": "1179014e-db0a-49c2-bd61-3e3085eb9963"
+          "MusicManager": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+          "Pixelate": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
+          "Sharpen": "ad987df2-d5f0-45ef-9701-92ab0c410c84"
         }
       ]
     }

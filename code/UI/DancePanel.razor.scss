@@ -46,6 +46,13 @@ DancePanel
 			opacity: 0.5;
 			text-transform: uppercase;
 			margin-top: 8px;
+			align-items: center;
+			gap: 8px;
+
+			i
+			{
+				text-transform: none;
+			}
 
 			&:first-child
 			{
@@ -60,6 +67,7 @@ DancePanel
 			align-items: center;
 			gap: 16px;
 			flex-shrink: 0;
+			padding-left: 16px;
 
 			> p
 			{

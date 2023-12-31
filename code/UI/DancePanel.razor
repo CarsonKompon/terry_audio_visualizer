@@ -1,4 +1,6 @@
 @using System;
+@using System.Collections.Generic;
+@using System.Linq;
 @using Sandbox;
 @using Sandbox.UI;
 @inherits PanelComponent
@@ -81,6 +83,35 @@
 				<SliderControl Value:bind=@BarRotator.RotateSpeed Min=@(-64) Max=@(64) Step=@(0.01f) />
 			</div>
 
+			<h1><i>bar_chart</i>Energy Bars</h1>
+			<div class="setting">
+				<i>aspect_ratio</i>
+				<p>Bar Width</p>
+				<SliderControl Value:bind=@EnergyBarWidth Min=@(0) Max=@(0.3f) Step=@(0.001f) />
+			</div>
+			<div class="setting">
+				<i>height</i>
+				<p>Bar Amplitude</p>
+				<SliderControl Value:bind=@EnergyBarHeight Min=@(0.01f) Max=@(10f) Step=@(0.01f) />
+			</div>
+
+			<h1><i>apps</i>Dance Pad</h1>
+			<div class="setting">
+				<i>music_note</i>
+				<p>Reactivity</p>
+				<SliderControl Value:bind=@DancePad.Reactivity Min=@(0) Max=@(1f) Step=@(0.001f) />
+			</div>
+			<div class="setting">
+				<i>height</i>
+				<p>Amplitude</p>
+				<SliderControl Value:bind=@DancePad.Amplitude Min=@(0f) Max=@(32f) Step=@(0.01f) />
+			</div>
+			<div class="setting">
+				<i>all_inclusive</i>
+				<p>Wavyness</p>
+				<SliderControl Value:bind=@DancePad.Wavyness Min=@(0f) Max=@(2f) Step=@(0.01f) />
+			</div>
+
 		</div>
 	}
 </root>
@@ -93,7 +124,52 @@
 	[Property] public Sharpen Sharpen { get; set; }
 	[Property] public Bloom Bloom { get; set; }
 	[Property] public Pixelate Pixelate { get; set; }
+	[Property] public DancePadGridManager DancePad { get; set; }
+
+	List<VisualizerReactor> Bars = new();
 	bool SettingsOpen = false;
+
+	float EnergyBarWidth
+	{
+		get => energyBarWidth;
+		set
+		{
+			energyBarWidth = value;
+			foreach(var bar in Bars)
+			{
+				bar.StartingScale = new Vector3(value, value, bar.StartingScale.z);
+			}
+		}
+	
+	}
+	float energyBarWidth = 0.2f;
+
+	float EnergyBarHeight
+	{
+		get => energyBarHeight;
+		set
+		{
+			energyBarHeight = value;
+			foreach(var bar in Bars)
+			{
+				bar.ScaleFactor = bar.ScaleFactor.WithZ(value);
+				bar.PositionFactor = bar.PositionFactor.WithZ(value * 25f);
+			}
+		}
+	}
+	float energyBarHeight = 2f;
+
+	protected override void OnStart()
+	{
+		Bars.Clear();
+		foreach(var reactor in Scene.Components.GetAll<VisualizerReactor>(FindMode.EverythingInSelfAndDescendants))
+		{
+			if(reactor.Tags.Has("bar"))
+			{
+				Bars.Add(reactor);
+			}
+		}
+	}
 
 	void SettingsButtonPressed()
 	{

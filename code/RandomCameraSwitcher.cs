@@ -6,7 +6,7 @@ public sealed class RandomCameraSwitcher : Component
 {
 	[Property] MusicManager MusicComponent { get; set; }
 	[Property] float Chance { get; set; } = 0.1f;
-	[Property] float MinimumTimeBetweenSwitches { get; set; } = 15f;
+	[Property] float MinimumTimeBetweenSwitches { get; set; } = 20f;
 	RealTimeSince TimeSinceLastSwitch = 0f;
 
 	protected override void OnStart()
@@ -16,7 +16,7 @@ public sealed class RandomCameraSwitcher : Component
 
 	void OnBeat()
 	{
-		if ( Random.Shared.Float( 0f, 1f ) < Chance || TimeSinceLastSwitch > MinimumTimeBetweenSwitches )
+		if ( TimeSinceLastSwitch > 1f && (Random.Shared.Float( 0f, 1f ) < Chance || TimeSinceLastSwitch > MinimumTimeBetweenSwitches) )
 		{
 			foreach ( var child in GameObject.Children )
 			{

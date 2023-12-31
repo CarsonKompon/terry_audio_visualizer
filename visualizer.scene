@@ -76,6 +76,20 @@
           "Chance": 0.1,
           "MinimumTimeBetweenSwitches": 1,
           "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963"
+        },
+        {
+          "__type": "OrbitDrag",
+          "__enabled": true,
+          "RotationSpeed": 0
+        },
+        {
+          "__type": "VisualizerReactor",
+          "__enabled": true,
+          "Mode": "Energy",
+          "MusicComponent": null,
+          "PositionFactor": "0,0,0",
+          "RotationFactor": "0,0,0",
+          "ScaleFactor": "0,0,0"
         }
       ],
       "Children": [
@@ -175,7 +189,7 @@
           "__enabled": true,
           "Loop": true,
           "PeakThreshold": 1.06,
-          "Url": "https://donglekumquatarchive.com/Archive/Albums/Hoofdachest/Hoofdachest%20(instrumental).wav"
+          "Url": "https://cdn.discordapp.com/attachments/894656054074437702/1191122363538997298/Fortnite_-_Lobby_Track_-_Butter_Barn_Hoedown.mp3?ex=65a44a25\u0026is=6591d525\u0026hm=76a15046dde52a1ca4f11aacdd83c65c3c5c62aa5f8a7c51f18658aba6004b56\u0026"
         }
       ]
     },
@@ -227,7 +241,9 @@
             {
               "__type": "DancePadGridManager",
               "__enabled": true,
-              "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963"
+              "Amplitude": 8,
+              "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+              "Reactivity": 1
             }
           ],
           "Children": [
@@ -899,6 +915,7 @@
         {
           "Id": "07cde167-ac19-4f8d-9604-59083e55a461",
           "Name": "Visualizer Bars",
+          "Rotation": "0,-0,-0.707107,0.7071065",
           "Enabled": true,
           "Components": [
             {
@@ -939,6 +956,204 @@
               ]
             }
           ]
+        },
+        {
+          "Id": "af78329e-8d7c-4b90-b8cc-5b53a4a5dcb1",
+          "Name": "Bars",
+          "Enabled": true,
+          "Children": [
+            {
+              "Id": "d6dcc2d7-f74c-46fc-96b7-1f166d34fac0",
+              "Name": "Bars",
+              "Position": "0,-96,0",
+              "Enabled": true,
+              "Children": [
+                {
+                  "Id": "0a86b897-520f-4108-a443-ccc14afdcf7d",
+                  "Name": "Bar1",
+                  "Position": "0,0,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "ModelRenderer",
+                      "__enabled": true,
+                      "BodyGroups": 18446744073709551615,
+                      "MaterialGroup": null,
+                      "MaterialOverride": null,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "0.19802,1,0.10891,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__enabled": true,
+                      "Mode": "HistoryAverage",
+                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                },
+                {
+                  "Id": "a40f7555-3f87-4fae-a4e0-6f7a3770e82d",
+                  "Name": "Bar2",
+                  "Position": "0,-16,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "ModelRenderer",
+                      "__enabled": true,
+                      "BodyGroups": 18446744073709551615,
+                      "MaterialGroup": null,
+                      "MaterialOverride": null,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "0.10891,0.44752,1,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__enabled": true,
+                      "Mode": "TargetEnergy",
+                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                },
+                {
+                  "Id": "27955977-9282-4b7c-88b6-7bd56ef5314d",
+                  "Name": "Bar3",
+                  "Position": "0,-32,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "ModelRenderer",
+                      "__enabled": true,
+                      "BodyGroups": 18446744073709551615,
+                      "MaterialGroup": null,
+                      "MaterialOverride": null,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "1,0.10891,0.10891,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__enabled": true,
+                      "Mode": "Energy",
+                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Id": "6ada207e-2702-4e97-bcf8-1a3d09deeaab",
+              "Name": "Bars",
+              "Position": "0,96,0",
+              "Rotation": "0.0000000595997,-0.0000000005472119,1,-0.0000006397578",
+              "Enabled": true,
+              "Children": [
+                {
+                  "Id": "4c08a6fa-3d5b-4ee6-9ff7-c821bba0e1db",
+                  "Name": "Bar1",
+                  "Position": "0,0,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "ModelRenderer",
+                      "__enabled": true,
+                      "BodyGroups": 18446744073709551615,
+                      "MaterialGroup": null,
+                      "MaterialOverride": null,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "0.19802,1,0.10891,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__enabled": true,
+                      "Mode": "HistoryAverage",
+                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                },
+                {
+                  "Id": "94876732-7fde-4f75-864d-6dcea2c2e461",
+                  "Name": "Bar2",
+                  "Position": "0,-16,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "ModelRenderer",
+                      "__enabled": true,
+                      "BodyGroups": 18446744073709551615,
+                      "MaterialGroup": null,
+                      "MaterialOverride": null,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "0.10891,0.44752,1,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__enabled": true,
+                      "Mode": "TargetEnergy",
+                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                },
+                {
+                  "Id": "be0015b0-0921-4b52-b0f3-e2e15b11bf8f",
+                  "Name": "Bar3",
+                  "Position": "0,-32,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "ModelRenderer",
+                      "__enabled": true,
+                      "BodyGroups": 18446744073709551615,
+                      "MaterialGroup": null,
+                      "MaterialOverride": null,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "1,0.10891,0.10891,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__enabled": true,
+                      "Mode": "Energy",
+                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -962,6 +1177,7 @@
           "BarManager": "07cde167-ac19-4f8d-9604-59083e55a461",
           "BarRotator": "07cde167-ac19-4f8d-9604-59083e55a461",
           "Bloom": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
+          "DancePad": "ea93b873-739b-4f77-8f2c-a4f731738685",
           "MusicManager": "1179014e-db0a-49c2-bd61-3e3085eb9963",
           "Pixelate": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
           "Sharpen": "ad987df2-d5f0-45ef-9701-92ab0c410c84"

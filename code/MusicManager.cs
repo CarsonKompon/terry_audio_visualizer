@@ -86,21 +86,6 @@ public class MusicManager : Component
         {
             IsPeaking = false;
         }
-
-
-        Gizmo.Draw.LineThickness = 8f;
-        Gizmo.Draw.Color = Color.Red;
-        Gizmo.Draw.Line( new Vector3( 0, 100, 0 ), new Vector3( 0, 100, Energy * 100f ) );
-        Gizmo.Draw.Line( new Vector3( 0, -100, 0 ), new Vector3( 0, -100, Energy * 100f ) );
-        Gizmo.Draw.Color = Color.Green;
-        Gizmo.Draw.Line( new Vector3( 0, 90, 0 ), new Vector3( 0, 90, EnergyHistoryAverage * 100f ) );
-        Gizmo.Draw.Line( new Vector3( 0, -90, 0 ), new Vector3( 0, -90, EnergyHistoryAverage * 100f ) );
-        Gizmo.Draw.Color = Color.Blue;
-        var height = EnergyHistoryAverage + AdjustedPeakThreshold;
-        Gizmo.Draw.Line( new Vector3( 0, 95, 0 ), new Vector3( 0, 95, height * 100f ) );
-        Gizmo.Draw.Line( new Vector3( 0, -95, 0 ), new Vector3( 0, -95, height * 100f ) );
-
-
     }
 
     protected override void OnEnabled()

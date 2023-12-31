@@ -1,0 +1,15 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<div class="buttons">
+		<i>settings</i>
+	</div>
+</root>
+
+@code
+{
+
+	protected override int BuildHash() => System.HashCode.Combine( "" );
+}

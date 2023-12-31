@@ -8,6 +8,11 @@
 <root>
 	<div class="buttons">
 		<i class="btn" onclick=@SettingsButtonPressed>settings</i>
+		<i class="btn" onclick=@PlayPauseButtonPressed>@(MusicManager.IsPaused ? "play_arrow" : "pause")</i>
+		<div class="search">
+			<i>language</i>
+			<TextEntry @ref="UrlEntry" Placeholder="Enter a song URL (Youtube or Direct MP3/MP4/OGG/WAV)" onsubmit=@SubmitUrl />
+		</div>
 	</div>
 	@if(SettingsOpen)
 	{
@@ -126,6 +131,7 @@
 	[Property] public Pixelate Pixelate { get; set; }
 	[Property] public DancePadGridManager DancePad { get; set; }
 
+	TextEntry UrlEntry;
 	List<VisualizerReactor> Bars = new();
 	bool SettingsOpen = false;
 
@@ -174,6 +180,24 @@
 	void SettingsButtonPressed()
 	{
 		SettingsOpen = !SettingsOpen;
+	}
+
+	void PlayPauseButtonPressed()
+	{
+		if(MusicManager.IsPaused)
+		{
+			MusicManager.Play();
+		}
+		else
+		{
+			MusicManager.Pause();
+		}
+	}
+
+	void SubmitUrl()
+	{
+		MusicManager.Play(UrlEntry.Text);
+		UrlEntry.Text = "";
 	}
 
 	protected override int BuildHash() => HashCode.Combine( SettingsOpen ? MusicManager.Energy : 0f );

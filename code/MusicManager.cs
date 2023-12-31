@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Sandbox;
-
+using MediaHelpers;
 
 public class MusicManager : Component
 {
@@ -9,6 +9,18 @@ public class MusicManager : Component
     [Property] public bool Loop { get; set; } = false;
     [Property] public float PeakThreshold { get; set; } = 1.08f;
     public float AdjustedPeakThreshold { get; private set; } = 0f;
+
+    public bool IsPaused
+    {
+        get => MusicPlayer != null && MusicPlayer.Paused;
+        set
+        {
+            if ( MusicPlayer != null )
+            {
+                MusicPlayer.Paused = value;
+            }
+        }
+    }
 
     public bool IsPlaying => MusicPlayer != null;
     public ReadOnlySpan<float> Spectrum => IsPlaying ? MusicPlayer.Spectrum : null;
@@ -90,7 +102,34 @@ public class MusicManager : Component
 
     protected override void OnEnabled()
     {
+        Play();
+    }
+
+    protected override void OnDisabled()
+    {
+        Stop();
+    }
+
+    public async void Play( string url )
+    {
+        if ( IsPlaying )
+        {
+            Stop();
+        }
+
+        if ( MediaHelper.IsYoutubeUrl( url ) )
+        {
+            url = await MediaHelper.GetUrlFromYoutubeUrl( url );
+        }
+
+        Url = url;
+        Play();
+    }
+
+    public void Play()
+    {
         if ( string.IsNullOrEmpty( Url ) ) return;
+        if ( IsPlaying ) Stop();
 
         MusicPlayer = MusicPlayer.PlayUrl( Url );
         MusicPlayer.Repeat = Loop;
@@ -98,9 +137,11 @@ public class MusicManager : Component
         {
             OnDisabled();
         };
+
+        IsPaused = false;
     }
 
-    protected override void OnDisabled()
+    public void Stop()
     {
         if ( MusicPlayer == null ) return;
 
@@ -110,11 +151,11 @@ public class MusicManager : Component
         PeakKickVolume = 0f;
     }
 
-    public void Play()
+    public void Pause()
     {
-        if ( MusicPlayer == null )
+        if ( MusicPlayer != null )
         {
-            OnEnabled();
+            IsPaused = true;
         }
     }
 }

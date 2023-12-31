@@ -1,15 +1,49 @@
+@using System;
 @using Sandbox;
 @using Sandbox.UI;
 @inherits PanelComponent
 
 <root>
 	<div class="buttons">
-		<i>settings</i>
+		<i class="btn" onclick=@SettingsButtonPressed>settings</i>
 	</div>
+	@if(SettingsOpen)
+	{
+		<div class="settings">
+			<h1>Audio Settings</h1>
+			<div class="setting">
+				<p>Peak Threshold</p>
+				<div class="peak-slider">
+					<SliderControl Value:bind=@MusicManager.PeakThreshold Min=@(-1f) Max=@(3f) Step=@(0.001f) />
+					<div class="peak-fill" style="width: @(MathF.Min(MathX.Remap(MusicManager.Energy, 0f, 3f, 0f, 1f), 1f) * 100)%; @(MusicManager.IsPeaking ? "background-color: lime;" : "background-color: white;") "></div>
+					<div class="peak-fill target" style="width: @(MathF.Min(MathX.Remap(MusicManager.EnergyHistoryAverage + MusicManager.AdjustedPeakThreshold, 0f, 3f, 0f, 1f), 1f) * 100)%"></div>
+				</div>
+			</div>
+			<h1>Camera Settings</h1>
+			<div class="setting">
+				<p>Bloom</p>
+				<SliderControl Value:bind=@Bloom.Strength Min=@(0) Max=@(10f) Step=@(0.01f) />
+			</div>
+			<h1>Visualizer Ring</h1>
+			<div class="setting">
+				<p>Bar Width</p>
+				<SliderControl Value:bind=@BarManager.BarWidth Min=@(0) Max=@(0.2f) Step=@(0.001f) />
+			</div>
+		</div>
+	}
 </root>
 
 @code
 {
+	[Property] public MusicManager MusicManager { get; set; }
+	[Property] public VisualizerBarManager BarManager { get; set; }
+	[Property] public Bloom Bloom { get; set; }
+	bool SettingsOpen = false;
 
-	protected override int BuildHash() => System.HashCode.Combine( "" );
+	void SettingsButtonPressed()
+	{
+		SettingsOpen = !SettingsOpen;
+	}
+
+	protected override int BuildHash() => HashCode.Combine( SettingsOpen ? MusicManager.Energy : 0f );
 }

@@ -7,6 +7,8 @@ public class MusicManager : Component
 {
     [Property] public string Url { get; set; }
     [Property] public bool Loop { get; set; } = false;
+    [Property] public float PeakThreshold { get; set; } = 1.08f;
+    public float AdjustedPeakThreshold { get; private set; } = 0f;
 
     public bool IsPlaying => MusicPlayer != null;
     public ReadOnlySpan<float> Spectrum => IsPlaying ? MusicPlayer.Spectrum : null;
@@ -70,10 +72,9 @@ public class MusicManager : Component
         float energyStdDev = (float)Math.Sqrt( variance / EnergyHistory.Count );
 
         // Adjusted Peak Threshold Calculation
-        float peakThresholdMultiplier = 1.08f; // Adjust this multiplier as needed
-        float adjustedPeakThreshold = peakThresholdMultiplier * energyStdDev;
+        AdjustedPeakThreshold = PeakThreshold * energyStdDev;
 
-        if ( EnergyHistoryAverage > 0.05f && Energy > EnergyHistoryAverage + adjustedPeakThreshold )
+        if ( EnergyHistoryAverage > 0.05f && Energy > EnergyHistoryAverage + AdjustedPeakThreshold )
         {
             if ( !IsPeaking )
             {
@@ -95,7 +96,7 @@ public class MusicManager : Component
         Gizmo.Draw.Line( new Vector3( 0, 90, 0 ), new Vector3( 0, 90, EnergyHistoryAverage * 100f ) );
         Gizmo.Draw.Line( new Vector3( 0, -90, 0 ), new Vector3( 0, -90, EnergyHistoryAverage * 100f ) );
         Gizmo.Draw.Color = Color.Blue;
-        var height = EnergyHistoryAverage + adjustedPeakThreshold;
+        var height = EnergyHistoryAverage + AdjustedPeakThreshold;
         Gizmo.Draw.Line( new Vector3( 0, 95, 0 ), new Vector3( 0, 95, height * 100f ) );
         Gizmo.Draw.Line( new Vector3( 0, -95, 0 ), new Vector3( 0, -95, height * 100f ) );
 

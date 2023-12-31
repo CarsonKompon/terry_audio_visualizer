@@ -6,6 +6,7 @@ public sealed class VisualizerBarManager : Component
 {
 	[Property] MusicManager MusicComponent { get; set; }
 	[Property] GameObject Prefab { get; set; }
+	[Property] public float BarWidth { get; set; } = 0.1f;
 
 	List<GameObject> Bars = new();
 
@@ -49,7 +50,7 @@ public sealed class VisualizerBarManager : Component
 			}
 			var value = (spectrum[index] + spectrum[index + 1] + spectrum[index + 2] + spectrum[index + 3]) / 4f;
 			var bar = Bars[i];
-			var targetScale = new Vector3( .1f, .1f, value / 10f );
+			var targetScale = new Vector3( BarWidth, BarWidth, value / 10f );
 			bar.Transform.LocalScale = bar.Transform.LocalScale.LerpTo( targetScale, Time.Delta * 10f );
 			bar.Transform.LocalPosition = new Vector3( bar.Transform.LocalPosition.x, bar.Transform.LocalPosition.y, value + (MathF.Sin( time + (i / 128f) * (2 * MathF.PI) ) * 32f) );
 		}

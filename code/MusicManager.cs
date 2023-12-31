@@ -26,9 +26,17 @@ public class MusicManager : Component
     public ReadOnlySpan<float> Spectrum => IsPlaying ? MusicPlayer.Spectrum : null;
     public Vector3 Position
     {
-        get => MusicPlayer.Position;
-        set => MusicPlayer.Position = value;
+        get => IsPlaying ? MusicPlayer.Position : Vector3.Zero;
+        set
+        {
+            if ( MusicPlayer != null )
+            {
+                MusicPlayer.Position = value;
+            }
+        }
     }
+    public string CurrentlyPlaying => IsPlaying ? (string.IsNullOrEmpty( MusicPlayer.Title ) ? _currentlyPlaying : MusicPlayer.Title) : null;
+    string _currentlyPlaying = null;
 
     public bool IsPeaking { get; private set; } = false;
     public Action OnBeat { get; set; }
@@ -47,14 +55,14 @@ public class MusicManager : Component
 
         var spectrum = MusicPlayer.Spectrum;
 
-
         // Energy Calculations
         var energy = 0f;
-        for ( int i = 0; i < 512; i++ )
+        float length = spectrum.Length;
+        for ( int i = 0; i < length; i++ )
         {
             energy += spectrum[i];
         }
-        energy /= 512f;
+        energy /= length;
         Energy = Energy.LerpTo( energy, Time.Delta * 30f );
 
         EnergyHistory.Add( energy );
@@ -102,7 +110,15 @@ public class MusicManager : Component
 
     protected override void OnEnabled()
     {
-        Play();
+        string[] songs = new string[]
+        {
+            "https://www.youtube.com/watch?v=aTMhTKISKeI",
+            "https://www.youtube.com/watch?v=hhMZ5mpOTGk",
+            "https://cdn.discordapp.com/attachments/894656054074437702/1191158838079012895/1139563_Im-Human.mp3?ex=65a46c1d&is=6591f71d&hm=08fe9cc0eb427ad23a8ecbd9421b410a21f6a72341a029587880e2d6de48c3d0&"
+        };
+        Url = songs[Random.Shared.Next( 0, songs.Length )];
+
+        Play( Url );
     }
 
     protected override void OnDisabled()
@@ -110,28 +126,39 @@ public class MusicManager : Component
         Stop();
     }
 
-    public async void Play( string url )
+    public void Play( string url )
     {
         if ( IsPlaying )
         {
             Stop();
         }
 
-        if ( MediaHelper.IsYoutubeUrl( url ) )
-        {
-            url = await MediaHelper.GetUrlFromYoutubeUrl( url );
-        }
-
         Url = url;
         Play();
     }
 
-    public void Play()
+    public async void Play()
     {
         if ( string.IsNullOrEmpty( Url ) ) return;
-        if ( IsPlaying ) Stop();
+        if ( MusicPlayer != null )
+        {
+            if ( IsPaused )
+            {
+                IsPaused = false;
+                return;
+            }
+            Stop();
+        }
 
-        MusicPlayer = MusicPlayer.PlayUrl( Url );
+        string url = Url;
+        if ( MediaHelper.IsYoutubeUrl( url ) )
+        {
+            var response = await MediaHelper.GetYoutubePlayerResponseFromUrl( url );
+            url = response.GetStreamUrl();
+            _currentlyPlaying = response.Author + " - " + response.Title;
+        }
+
+        MusicPlayer = MusicPlayer.PlayUrl( url );
         MusicPlayer.Repeat = Loop;
         MusicPlayer.OnFinished += () =>
         {
@@ -149,6 +176,7 @@ public class MusicManager : Component
         MusicPlayer.Dispose();
         MusicPlayer = null;
         PeakKickVolume = 0f;
+        _currentlyPlaying = null;
     }
 
     public void Pause()

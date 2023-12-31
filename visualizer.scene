@@ -62,6 +62,11 @@
           "__type": "Pixelate",
           "__enabled": true,
           "Scale": 0
+        },
+        {
+          "__type": "PositionMusicHere",
+          "__enabled": true,
+          "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963"
         }
       ]
     },
@@ -189,7 +194,7 @@
           "__enabled": true,
           "Loop": true,
           "PeakThreshold": 1.06,
-          "Url": "https://cdn.discordapp.com/attachments/894656054074437702/1191122363538997298/Fortnite_-_Lobby_Track_-_Butter_Barn_Hoedown.mp3?ex=65a44a25\u0026is=6591d525\u0026hm=76a15046dde52a1ca4f11aacdd83c65c3c5c62aa5f8a7c51f18658aba6004b56\u0026"
+          "Url": "https://donglekumquatarchive.com/Archive/Tower%20Unite/Extras/Arcade/Lonely%20Gun%2030XX%20(Gameplay).ogg"
         }
       ]
     },
@@ -243,7 +248,8 @@
               "__enabled": true,
               "Amplitude": 8,
               "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
-              "Reactivity": 1
+              "Reactivity": 1,
+              "Wavyness": 1
             }
           ],
           "Children": [
@@ -921,6 +927,7 @@
             {
               "__type": "VisualizerBarManager",
               "__enabled": true,
+              "Amplitude": 0.7,
               "BarWavyness": 4,
               "BarWavynessAmplitude": 32,
               "BarWidth": 0.1,

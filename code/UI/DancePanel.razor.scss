@@ -25,6 +25,7 @@ DancePanel
 			text-align: center;
 			cursor: pointer;
 			pointer-events: all;
+			color: white;
 		}
 
 		> .search
@@ -123,6 +124,23 @@ DancePanel
 					}
 				}
 			}
+		}
+	}
+
+	.currently-playing
+	{
+		position: absolute;
+		bottom: 8px;
+		left: 8px;
+		color: white;
+		font-family: Poppins;
+		font-size: 18px;
+		align-items: center;
+		gap: 4px;
+
+		i
+		{
+			font-size: 24px;
 		}
 	}
 }

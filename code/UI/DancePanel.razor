@@ -48,6 +48,11 @@
 
 			<h1><i>graphic_eq</i>Visualizer Ring</h1>
 			<div class="setting">
+				<i>music_note</i>
+				<p>Reactivity</p>
+				<SliderControl Value:bind=@BarManager.Amplitude Min=@(0) Max=@(2) Step=@(0.001f) />
+			</div>
+			<div class="setting">
 				<i>fit_screen</i>
 				<p>Ring Radius</p>
 				<SliderControl Value:bind=@BarManager.RingRadius Min=@(125) Max=@(1000) Step=@(1) />
@@ -117,6 +122,14 @@
 				<SliderControl Value:bind=@DancePad.Wavyness Min=@(0f) Max=@(2f) Step=@(0.01f) />
 			</div>
 
+		</div>
+	}
+
+	@if(!string.IsNullOrEmpty(MusicManager.CurrentlyPlaying))
+	{
+		<div class="currently-playing">
+			<i>headphones</i>
+			<p>@MusicManager.CurrentlyPlaying</p>
 		</div>
 	}
 </root>
@@ -200,5 +213,5 @@
 		UrlEntry.Text = "";
 	}
 
-	protected override int BuildHash() => HashCode.Combine( SettingsOpen ? MusicManager.Energy : 0f );
+	protected override int BuildHash() => HashCode.Combine( SettingsOpen ? MusicManager.Energy : 0f, MusicManager.CurrentlyPlaying, MusicManager.IsPlaying );
 }

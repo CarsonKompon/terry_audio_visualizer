@@ -22,6 +22,7 @@ public sealed class VisualizerBarManager : Component
 	[Property] public float BarWavynessAmplitude { get; set; } = 32f;
 	[Property] public float WaveSpeed { get; set; } = 1f;
 	[Property] public float SpinOnBeat { get; set; } = 10f;
+	[Property] public float Amplitude { get; set; } = 0.1f;
 
 	List<GameObject> Bars = new();
 
@@ -55,7 +56,7 @@ public sealed class VisualizerBarManager : Component
 			var value = (spectrum[index] + spectrum[index + 1] + spectrum[index + 2] + spectrum[index + 3]) / 4f;
 			var bar = Bars[i];
 			var width = BarWidth;
-			var targetScale = new Vector3( width, width, value / 10f );
+			var targetScale = new Vector3( width, width, value * Amplitude );
 			bar.Transform.LocalScale = bar.Transform.LocalScale.LerpTo( targetScale, Time.Delta * 10f );
 			bar.Transform.LocalPosition = new Vector3(
 				MathF.Sin( i / (float)_barCount * (2 * MathF.PI) ) * RingRadius,

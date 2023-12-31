@@ -578,7 +578,7 @@
                         {
                           "__type": "SkinnedModelRenderer",
                           "__enabled": true,
-                          "BodyGroups": 18446744073709551595,
+                          "BodyGroups": 18446744073709551599,
                           "BoneMergeTarget": null,
                           "CreateBoneObjects": false,
                           "MaterialGroup": null,
@@ -620,7 +620,28 @@
                               "CreateBoneObjects": false,
                               "MaterialGroup": null,
                               "MaterialOverride": null,
-                              "Model": "models/citizen_clothes/hat/balaclava/models/balaclava.vmdl",
+                              "Model": "models/citizen_clothes/hair/hair_shortscruffy/models/hair_shortscruffy_black.vmdl",
+                              "RenderType": "On",
+                              "Tint": "1,1,1,1"
+                            }
+                          ]
+                        },
+                        {
+                          "Id": "513edc4b-4a72-4d90-b3e7-e083f47828f1",
+                          "Name": "Object",
+                          "Position": "0,0,0",
+                          "Rotation": "0,0,-1,-0.0000006397578",
+                          "Enabled": true,
+                          "Components": [
+                            {
+                              "__type": "SkinnedModelRenderer",
+                              "__enabled": true,
+                              "BodyGroups": 18446744073709551615,
+                              "BoneMergeTarget": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                              "CreateBoneObjects": false,
+                              "MaterialGroup": null,
+                              "MaterialOverride": null,
+                              "Model": "models/citizen_clothes/glasses/party_glasses/mesh/party_glasses.vmdl",
                               "RenderType": "On",
                               "Tint": "1,1,1,1"
                             }
@@ -641,7 +662,7 @@
                               "CreateBoneObjects": false,
                               "MaterialGroup": null,
                               "MaterialOverride": null,
-                              "Model": "models/citizen_clothes/jacket/suitjacket/suitjacketunbuttonedshirt.vmdl",
+                              "Model": "models/citizen_clothes/shirt/tanktop/models/tanktop.vmdl",
                               "RenderType": "On",
                               "Tint": "1,1,1,1"
                             }
@@ -983,6 +1004,22 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "Id": "32b71629-697e-4325-9c12-c9c66f731d8d",
+      "Name": "Screen UI",
+      "Position": "130.0225,116.6893,14.47157",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "__enabled": true,
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
         }
       ]
     }

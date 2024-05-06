@@ -5,15 +5,8 @@
   "Ident": "terry_audio_visualizer",
   "Tags": null,
   "Schema": 1,
-  "HasAssets": true,
-  "AssetsPath": "",
   "Resources": null,
-  "MenuResources": "*",
-  "HasCode": true,
-  "CodePath": "/code/",
-  "PackageReferences": [
-    "carsonk.utils"
-  ],
+  "PackageReferences": [],
   "EditorReferences": null,
   "Metadata": {
     "MaxPlayers": 64,

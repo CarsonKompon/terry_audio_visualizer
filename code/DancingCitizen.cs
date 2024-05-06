@@ -14,7 +14,6 @@ public class DancingCitizen : Component
 
     Vector3 Velocity = Vector3.Zero;
     Angles LookAngles = Angles.Zero;
-    bool HasIK = false;
 
     protected override void OnStart()
     {

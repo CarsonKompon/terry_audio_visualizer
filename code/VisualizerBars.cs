@@ -23,6 +23,7 @@ public sealed class VisualizerBarManager : Component
 	[Property] public float WaveSpeed { get; set; } = 1f;
 	[Property] public float SpinOnBeat { get; set; } = 10f;
 	[Property] public float Amplitude { get; set; } = 0.1f;
+	[Property] public float MaxAmplitude { get; set; } = 1f;
 
 	List<GameObject> Bars = new();
 
@@ -48,15 +49,15 @@ public sealed class VisualizerBarManager : Component
 
 		for ( int i = 0; i < Bars.Count; i++ )
 		{
-			var index = i;
-			if ( i > Bars.Count / 2 )
+			var index = MathX.Remap( i, 0, Bars.Count, 0, spectrum.Length - 4 );
+			if ( index > (spectrum.Length - 4) / 2 )
 			{
-				index = Bars.Count - i;
+				index = spectrum.Length - 4 - index;
 			}
 			var value = (spectrum[index] + spectrum[index + 1] + spectrum[index + 2] + spectrum[index + 3]) / 4f;
 			var bar = Bars[i];
 			var width = BarWidth;
-			var targetScale = new Vector3( width, width, value * Amplitude );
+			var targetScale = new Vector3( width, width, MathF.Min( MaxAmplitude, value * Amplitude ) );
 			bar.Transform.LocalScale = bar.Transform.LocalScale.LerpTo( targetScale, Time.Delta * 10f );
 			bar.Transform.LocalPosition = new Vector3(
 				MathF.Sin( i / (float)_barCount * (2 * MathF.PI) ) * RingRadius,
@@ -82,7 +83,7 @@ public sealed class VisualizerBarManager : Component
 
 		for ( int i = 0; i < _barCount; i++ )
 		{
-			var bar = SceneUtility.Instantiate( Prefab );
+			var bar = Prefab.Clone();
 			bar.Parent = GameObject;
 			bar.Transform.LocalPosition = new Vector3( MathF.Sin( i / (float)_barCount * (2 * MathF.PI) ) * RingRadius, MathF.Cos( i / (float)_barCount * (2 * MathF.PI) ) * RingRadius, 0 );
 			bar.Enabled = true;

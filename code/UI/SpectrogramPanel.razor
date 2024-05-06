@@ -1,0 +1,87 @@
+@using System;
+@using System.Collections.Generic;
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<image @ref="Canvas" class="canvas" />
+</root>
+
+@code
+{
+	[Property] float UpdateRate { get; set; } = 0f;
+
+
+	MusicPlayer MusicPlayer;
+	Image Canvas { get; set; }
+	TimeSince timeSinceUpdate;
+	byte[] textureData;
+
+	protected override void OnTreeFirstBuilt()
+	{
+		MusicPlayer = MusicPlayer.PlayUrl("https://files.catbox.moe/sbexx1.mp3");
+		MusicPlayer.Position = Scene.Camera.Transform.Position;
+		ResetCanvas();
+	}
+
+	protected override void OnUpdate()
+	{
+		if (timeSinceUpdate > UpdateRate)
+		{
+			UpdateCanvas();
+			timeSinceUpdate = 0;
+		}
+	}
+
+	void UpdateCanvas()
+	{
+		if(MusicPlayer is null) return;
+
+		// Push all pixels to the right by 1, leaving the leftmost column black
+		for (int y = 0; y < 512; y++)
+		{
+			for (int x = 511; x > 0; x--)
+			{
+				textureData[(y * 512 + x) * 4 + 0] = textureData[(y * 512 + x - 1) * 4 + 0];
+				textureData[(y * 512 + x) * 4 + 1] = textureData[(y * 512 + x - 1) * 4 + 1];
+				textureData[(y * 512 + x) * 4 + 2] = textureData[(y * 512 + x - 1) * 4 + 2];
+				textureData[(y * 512 + x) * 4 + 3] = textureData[(y * 512 + x - 1) * 4 + 3];
+			}
+		}
+
+		var spectrum = MusicPlayer.Spectrum;
+		// Fill the leftmost column with the spectrum
+		var str = "";
+		for (int y = 0; y < 512; y++)
+		{
+			byte value = (byte)(spectrum[y] * 255);
+			str += $"{y}: {value} |";
+			textureData[(y * 512) * 4 + 0] = value;
+			textureData[(y * 512) * 4 + 1] = value;
+			textureData[(y * 512) * 4 + 2] = value;
+			textureData[(y * 512) * 4 + 3] = 255;
+		}
+		@* Log.Info(str); *@
+
+		Canvas?.Texture?.Update(textureData);
+	}
+
+	void ResetCanvas()
+	{
+		Canvas?.Texture?.Dispose();
+		Texture2DBuilder builder = Texture.Create(512, 512);
+		textureData = new byte[512 * 512 * 4];
+		for (int i = 0; i < (512 * 512); i++)
+		{
+			textureData[i * 4 + 0] = 0;
+			textureData[i * 4 + 1] = 0;
+			textureData[i * 4 + 2] = 0;
+			textureData[i * 4 + 3] = 255;
+		}
+		builder.WithData(textureData);
+		Canvas.Texture = builder.Finish();
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine( "" );
+}

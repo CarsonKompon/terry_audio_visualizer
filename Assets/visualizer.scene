@@ -1,15 +1,18 @@
 {
+  "__guid": "15571404-6fa8-4f0e-9289-fe6b5fa22415",
   "GameObjects": [
     {
-      "Id": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
+      "__guid": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
       "Name": "Main Camera",
       "Position": "-300,0,100",
       "Rotation": "-0.000000005658571,0.09493508,-0.00000000000000005481071,0.9954838",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
-          "__type": "CameraComponent",
-          "__enabled": true,
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "8c04d53f-b104-4842-aff2-c2a0d117a612",
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
           "FieldOfView": 60,
@@ -25,13 +28,13 @@
           "ZNear": 10
         },
         {
-          "__type": "Sharpen",
-          "__enabled": true,
+          "__type": "Sandbox.Sharpen",
+          "__guid": "5b8541d4-a035-43b8-b2f8-257676b65d71",
           "Scale": 0.25
         },
         {
-          "__type": "Bloom",
-          "__enabled": true,
+          "__type": "Sandbox.Bloom",
+          "__guid": "195746a4-12c9-4770-aea0-9fe20440d1f7",
           "BloomColor": {
             "color": [
               {
@@ -59,39 +62,50 @@
           "ThresholdWidth": 0
         },
         {
-          "__type": "Pixelate",
-          "__enabled": true,
+          "__type": "Sandbox.Pixelate",
+          "__guid": "bff51e8d-f480-4ab9-a6e7-2dfd4f8061d7",
           "Scale": 0
         },
         {
           "__type": "PositionMusicHere",
-          "__enabled": true,
-          "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963"
+          "__guid": "07353848-1c02-4912-b633-6add3728f88d",
+          "MusicComponent": {
+            "_type": "component",
+            "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+            "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+            "component_type": "MusicManager"
+          }
         }
       ]
     },
     {
-      "Id": "60ff1c91-4780-424b-8c0d-cceb52df11f5",
+      "__guid": "60ff1c91-4780-424b-8c0d-cceb52df11f5",
       "Name": "Cameras",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "RandomCameraSwitcher",
-          "__enabled": true,
+          "__guid": "14c7a4f7-cc73-4b36-a911-523d4508f089",
           "Chance": 0.1,
           "MinimumTimeBetweenSwitches": 1,
-          "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963"
+          "MusicComponent": {
+            "_type": "component",
+            "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+            "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+            "component_type": "MusicManager"
+          }
         },
         {
           "__type": "OrbitDrag",
-          "__enabled": true,
+          "__guid": "989692a3-7ac6-4cde-a788-19cb2f9ecb48",
           "RotationSpeed": 0
         },
         {
           "__type": "VisualizerReactor",
-          "__enabled": true,
+          "__guid": "c070f563-266c-4123-ab36-a00a12ca7176",
           "Mode": "Energy",
-          "MusicComponent": null,
           "PositionFactor": "0,0,0",
           "RotationFactor": "0,0,0",
           "ScaleFactor": "0,0,0"
@@ -99,84 +113,111 @@
       ],
       "Children": [
         {
-          "Id": "07ceef10-8c77-4ff2-a3c0-b710ac607795",
+          "__guid": "07ceef10-8c77-4ff2-a3c0-b710ac607795",
           "Name": "Camera Gimbal",
           "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "RotatingComponent",
-              "__enabled": true,
+              "__type": "CUtils.Components.RotatingComponent",
+              "__guid": "14e811ea-f65d-44f5-ab0f-49bfeb1aa9a0",
               "RotateSpeed": "0,9.3,0"
             }
           ],
           "Children": [
             {
-              "Id": "fd26357a-aa6f-46e5-a702-d69038b5c0e5",
+              "__guid": "fd26357a-aa6f-46e5-a702-d69038b5c0e5",
               "Name": "Main Camera",
               "Position": "-300,0,100",
               "Rotation": "-0.000000005658571,0.09493508,-0.00000000000000005481071,0.9954838",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "TeleportCameraHere",
-                  "__enabled": true,
-                  "CameraComponent": "ad987df2-d5f0-45ef-9701-92ab0c410c84"
+                  "__guid": "4a3300c8-013d-434b-b88f-4b7b8f26a9b6",
+                  "CameraComponent": {
+                    "_type": "component",
+                    "component_id": "8c04d53f-b104-4842-aff2-c2a0d117a612",
+                    "go": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
+                    "component_type": "CameraComponent"
+                  }
                 }
               ]
             }
           ]
         },
         {
-          "Id": "9e78f183-4f74-4f98-a19c-12b4c4f1f36c",
+          "__guid": "9e78f183-4f74-4f98-a19c-12b4c4f1f36c",
           "Name": "Camera Gimbal",
           "Rotation": "0,0,0.8882173,0.4594237",
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "RotatingComponent",
-              "__enabled": true,
+              "__type": "CUtils.Components.RotatingComponent",
+              "__guid": "fd634200-7178-4fd5-80d0-03b86d6cba2b",
               "RotateSpeed": "0,-8,0"
             }
           ],
           "Children": [
             {
-              "Id": "e1aca6ea-bd24-4563-86e4-4fac4051fa34",
+              "__guid": "e1aca6ea-bd24-4563-86e4-4fac4051fa34",
               "Name": "Main Camera",
               "Position": "-1098.586,0,482.7935",
               "Rotation": "0.000000007450581,0.1857115,-0.00000005960464,0.982604",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "TeleportCameraHere",
-                  "__enabled": true,
-                  "CameraComponent": "ad987df2-d5f0-45ef-9701-92ab0c410c84"
+                  "__guid": "02c08662-dd81-4ff6-b767-4faa9c82f7c4",
+                  "CameraComponent": {
+                    "_type": "component",
+                    "component_id": "8c04d53f-b104-4842-aff2-c2a0d117a612",
+                    "go": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
+                    "component_type": "CameraComponent"
+                  }
                 }
               ]
             }
           ]
         },
         {
-          "Id": "2d8b8fe6-4477-402a-9a6d-d474f8c8a42a",
+          "__guid": "2d8b8fe6-4477-402a-9a6d-d474f8c8a42a",
           "Name": "Camera Gimbal",
           "Rotation": "0,-0,-0.9396928,0.3420196",
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "RotatingComponent",
-              "__enabled": true,
+              "__type": "CUtils.Components.RotatingComponent",
+              "__guid": "64b2b692-bab9-4cc2-9eee-18c6fbab5a7a",
               "RotateSpeed": "0,2,0"
             }
           ],
           "Children": [
             {
-              "Id": "8d68e2c4-9373-4404-92b7-a5a833353261",
+              "__guid": "8d68e2c4-9373-4404-92b7-a5a833353261",
               "Name": "Main Camera",
               "Position": "-210.1039,-0.000260586,32.8745",
               "Rotation": "0.000000002255233,0.002280762,-0.00000000008639945,0.9999975",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "TeleportCameraHere",
-                  "__enabled": true,
-                  "CameraComponent": "ad987df2-d5f0-45ef-9701-92ab0c410c84"
+                  "__guid": "b954e776-9d32-4e2a-93b3-5dd37f4137b8",
+                  "CameraComponent": {
+                    "_type": "component",
+                    "component_id": "8c04d53f-b104-4842-aff2-c2a0d117a612",
+                    "go": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
+                    "component_type": "CameraComponent"
+                  }
                 }
               ]
             }
@@ -185,13 +226,15 @@
       ]
     },
     {
-      "Id": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+      "__guid": "1179014e-db0a-49c2-bd61-3e3085eb9963",
       "Name": "Music Manager",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "MusicManager",
-          "__enabled": true,
+          "__guid": "2d9f9f45-1184-4e17-8831-162ab43c141e",
           "Loop": true,
           "PeakThreshold": 1.06,
           "Url": "https://donglekumquatarchive.com/Archive/Tower%20Unite/Extras/Arcade/Lonely%20Gun%2030XX%20(Gameplay).ogg"
@@ -199,39 +242,55 @@
       ]
     },
     {
-      "Id": "156219c9-06dc-4beb-b33d-b4f96d7d54cb",
+      "__guid": "156219c9-06dc-4beb-b33d-b4f96d7d54cb",
       "Name": "Environment",
+      "Tags": "skybox",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
-          "__type": "SkyBox2D",
-          "__enabled": true,
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "75fbbd56-0b7e-44ce-b767-deee48d57f7e",
           "SkyMaterial": "raw/ridingacrossthestars.vmat",
           "Tint": "1,1,1,1"
         },
         {
-          "__type": "EnvmapProbe",
-          "__enabled": true,
+          "__type": "Sandbox.EnvmapProbe",
+          "__guid": "0af973a1-b758-4b63-bba2-b06d5d846b63",
+          "Texture": "textures/cubemaps/default2.vtex",
           "Bounds": {
             "Mins": "-512,-512,-512",
             "Maxs": "512,512,512"
           },
+          "DelayBetweenUpdates": 0.1,
+          "Feathering": 0.02,
+          "FrameInterval": 5,
+          "MaxDistance": 512,
           "Projection": "Sphere",
-          "Texture": "textures/cubemaps/default2.vtex",
-          "TintColor": "1,1,1,1"
+          "RenderDynamically": false,
+          "TintColor": "1,1,1,1",
+          "UpdateStrategy": "OnEnabled",
+          "ZFar": 4096,
+          "ZNear": 16
         }
       ],
       "Children": [
         {
-          "Id": "dff7bd7d-6e97-4f76-b4d0-456e2ba102fb",
+          "__guid": "dff7bd7d-6e97-4f76-b4d0-456e2ba102fb",
           "Name": "Directional Light",
           "Position": "0,0,200",
           "Rotation": "-0.2459843,0.5938584,0.2931525,0.7077326",
+          "Tags": "light_directional,light",
           "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "DirectionalLight",
-              "__enabled": true,
+              "__type": "Sandbox.DirectionalLight",
+              "__guid": "4ad04971-dda4-4a53-90f7-ad3dfa662564",
+              "FogMode": "Enabled",
+              "FogStrength": 1,
               "LightColor": "0.91373,0.98039,1,1",
               "Shadows": true,
               "SkyColor": "0.43378,0.63964,0.74257,1"
@@ -239,32 +298,40 @@
           ]
         },
         {
-          "Id": "ea93b873-739b-4f77-8f2c-a4f731738685",
+          "__guid": "ea93b873-739b-4f77-8f2c-a4f731738685",
           "Name": "Dance Pad",
           "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "DancePadGridManager",
-              "__enabled": true,
+              "__guid": "8a78555b-4e22-4d37-98fe-76eefb138717",
               "Amplitude": 8,
-              "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+              "MusicComponent": {
+                "_type": "component",
+                "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+                "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                "component_type": "MusicManager"
+              },
               "Reactivity": 1,
               "Wavyness": 1
             }
           ],
           "Children": [
             {
-              "Id": "51ac5b1f-5cdc-4ddd-a2f1-e6c9ac53a270",
+              "__guid": "51ac5b1f-5cdc-4ddd-a2f1-e6c9ac53a270",
               "Name": "Pad-0-0",
               "Position": "64,64,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "20131c7c-0a4e-4b1d-8e9c-fda8b645f415",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -273,17 +340,18 @@
               ]
             },
             {
-              "Id": "896f7e4d-664c-45fc-bb3f-2c385faddda3",
+              "__guid": "896f7e4d-664c-45fc-bb3f-2c385faddda3",
               "Name": "Pad-1-0",
               "Position": "64,32,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "d1566999-cf76-44f0-b016-a22a119115c4",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -292,17 +360,18 @@
               ]
             },
             {
-              "Id": "22e59c32-aa83-45ec-a691-866c4b9d81bc",
+              "__guid": "22e59c32-aa83-45ec-a691-866c4b9d81bc",
               "Name": "Pad 2-0",
               "Position": "64,0,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "df86f38f-2810-4fcb-8d69-40f2f2f27f98",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -311,17 +380,18 @@
               ]
             },
             {
-              "Id": "aa439db3-9575-4808-8cbd-01f581eb85cb",
+              "__guid": "aa439db3-9575-4808-8cbd-01f581eb85cb",
               "Name": "Pad 3-0",
               "Position": "64,-32,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "208934c1-33bb-47ef-ba5a-c09c4abca3cf",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -330,17 +400,18 @@
               ]
             },
             {
-              "Id": "92d06590-70f3-4585-93e8-4bdb7b8cfc21",
+              "__guid": "92d06590-70f3-4585-93e8-4bdb7b8cfc21",
               "Name": "Pad-4-0",
               "Position": "64,-64,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "0f85a4fd-1faa-414f-a573-14e5d3f1f34e",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -349,17 +420,18 @@
               ]
             },
             {
-              "Id": "fffe0921-03f0-431a-bff5-21f98fef52bb",
+              "__guid": "fffe0921-03f0-431a-bff5-21f98fef52bb",
               "Name": "Pad-0-1",
               "Position": "32,64,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "76485f65-9d9b-4d52-a6d4-4bf519abf16b",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -368,17 +440,18 @@
               ]
             },
             {
-              "Id": "4f073264-fdde-4035-8839-ec73146a21f4",
+              "__guid": "4f073264-fdde-4035-8839-ec73146a21f4",
               "Name": "Pad-1-1",
               "Position": "32,32,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "12adaa83-b497-4954-aa99-fa23ce905920",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -387,17 +460,18 @@
               ]
             },
             {
-              "Id": "1927675e-20ce-4562-b37c-7a063f6e6dea",
+              "__guid": "1927675e-20ce-4562-b37c-7a063f6e6dea",
               "Name": "Pad-2-1",
               "Position": "32,0,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "2aa07aaf-7805-428f-8dbc-ed9ff3781537",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -406,17 +480,18 @@
               ]
             },
             {
-              "Id": "3f1aabbb-91c2-402c-a5a3-4c182eac6f3b",
+              "__guid": "3f1aabbb-91c2-402c-a5a3-4c182eac6f3b",
               "Name": "Pad-3-1",
               "Position": "32,-32,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "cc6c851e-6da9-43ef-a2f6-c3bb7d3f0101",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -425,17 +500,18 @@
               ]
             },
             {
-              "Id": "2c2e2cca-a829-4d59-88db-b05ed9fa6caa",
+              "__guid": "2c2e2cca-a829-4d59-88db-b05ed9fa6caa",
               "Name": "Pad-4-1",
               "Position": "32,-64,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "3dbfc914-2506-431a-90f6-9d413b416a20",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -444,17 +520,18 @@
               ]
             },
             {
-              "Id": "49f3b27a-4b19-4dcb-ab35-9e566811eb49",
+              "__guid": "49f3b27a-4b19-4dcb-ab35-9e566811eb49",
               "Name": "Pad-0-2",
               "Position": "0,64,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "0ba6731d-be73-42a8-ac7c-d94b8ef04791",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -463,17 +540,18 @@
               ]
             },
             {
-              "Id": "79bb93f0-83a1-4888-8e9a-6efd5f6299cc",
+              "__guid": "79bb93f0-83a1-4888-8e9a-6efd5f6299cc",
               "Name": "Pad-1-2",
               "Position": "0,32,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "d6f6fc96-1966-4f0b-a27f-5b5998ed1c17",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -482,16 +560,17 @@
               ]
             },
             {
-              "Id": "13c9f6b2-c9ec-42b9-abdb-ab0bfcefaa89",
+              "__guid": "13c9f6b2-c9ec-42b9-abdb-ab0bfcefaa89",
               "Name": "Pad-2-2",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "86c7d867-e762-4ad6-8f7f-d2655efce741",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -500,93 +579,117 @@
               ],
               "Children": [
                 {
-                  "Id": "72b6d109-b77d-456d-a43e-7b6bef585712",
+                  "__guid": "72b6d109-b77d-456d-a43e-7b6bef585712",
                   "Name": "Terry",
                   "Position": "0,0,2.568019",
                   "Scale": "2.188184,2.188184,2.188184",
                   "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "DancingCitizen",
-                      "__enabled": true,
-                      "AnimationHelper": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
-                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963"
+                      "__guid": "8c716d3c-68ea-4173-9659-79b1cee991f5",
+                      "AnimationHelper": {
+                        "_type": "component",
+                        "component_id": "1d71b8f5-131c-41ee-b72e-022b62003bca",
+                        "go": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                        "component_type": "CitizenAnimationHelper"
+                      },
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      }
                     }
                   ],
                   "Children": [
                     {
-                      "Id": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                      "__guid": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
                       "Name": "Body",
                       "Position": "0,0,0",
                       "Rotation": "0,0,1,-0.0000006397578",
                       "Enabled": true,
+                      "NetworkMode": 2,
+                      "NetworkInterpolation": true,
                       "Components": [
                         {
-                          "__type": "SkinnedModelRenderer",
-                          "__enabled": true,
+                          "__type": "Sandbox.SkinnedModelRenderer",
+                          "__guid": "bfefe278-855c-49c6-b7ce-66e0cd3ea494",
                           "BodyGroups": 18446744073709551599,
-                          "BoneMergeTarget": null,
                           "CreateBoneObjects": false,
-                          "MaterialGroup": null,
-                          "MaterialOverride": null,
                           "Model": "models/citizen/citizen.vmdl",
                           "RenderType": "On",
                           "Tint": "1,1,1,1"
                         },
                         {
-                          "__type": "CitizenAnimationHelper",
-                          "__enabled": true,
+                          "__type": "Sandbox.Citizen.CitizenAnimationHelper",
+                          "__guid": "1d71b8f5-131c-41ee-b72e-022b62003bca",
                           "BodyWeight": 1,
-                          "EyeSource": null,
                           "EyesWeight": 1,
                           "HeadWeight": 1,
                           "Height": 1,
-                          "IkLeftFoot": "20eec2dc-53b5-41ba-be10-fe857c612d50",
-                          "IkLeftHand": null,
-                          "IkRightFoot": null,
-                          "IkRightHand": null,
-                          "LookAt": null,
+                          "IkLeftFoot": {
+                            "_type": "gameobject",
+                            "go": "20eec2dc-53b5-41ba-be10-fe857c612d50"
+                          },
                           "LookAtEnabled": false,
-                          "Target": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe"
+                          "Target": {
+                            "_type": "component",
+                            "component_id": "bfefe278-855c-49c6-b7ce-66e0cd3ea494",
+                            "go": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                            "component_type": "SkinnedModelRenderer"
+                          }
                         }
                       ],
                       "Children": [
                         {
-                          "Id": "a0b48cf8-8d14-48ea-b8d7-f1b9d91e7ad8",
+                          "__guid": "a0b48cf8-8d14-48ea-b8d7-f1b9d91e7ad8",
                           "Name": "Object",
                           "Position": "0,0,0",
                           "Rotation": "0,0,-1,-0.0000006397578",
                           "Enabled": true,
+                          "NetworkMode": 2,
+                          "NetworkInterpolation": true,
                           "Components": [
                             {
-                              "__type": "SkinnedModelRenderer",
-                              "__enabled": true,
+                              "__type": "Sandbox.SkinnedModelRenderer",
+                              "__guid": "11deb4d8-ae5d-48c6-ac93-f27e337b709e",
                               "BodyGroups": 18446744073709551615,
-                              "BoneMergeTarget": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                              "BoneMergeTarget": {
+                                "_type": "component",
+                                "component_id": "bfefe278-855c-49c6-b7ce-66e0cd3ea494",
+                                "go": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                                "component_type": "SkinnedModelRenderer"
+                              },
                               "CreateBoneObjects": false,
-                              "MaterialGroup": null,
-                              "MaterialOverride": null,
-                              "Model": "models/citizen_clothes/hair/hair_shortscruffy/models/hair_shortscruffy_black.vmdl",
+                              "Model": "models/citizen_clothes/hair/hair_shortscruffy/models/hair_shortscruffy.vmdl",
                               "RenderType": "On",
                               "Tint": "1,1,1,1"
                             }
                           ]
                         },
                         {
-                          "Id": "513edc4b-4a72-4d90-b3e7-e083f47828f1",
+                          "__guid": "513edc4b-4a72-4d90-b3e7-e083f47828f1",
                           "Name": "Object",
                           "Position": "0,0,0",
                           "Rotation": "0,0,-1,-0.0000006397578",
                           "Enabled": true,
+                          "NetworkMode": 2,
+                          "NetworkInterpolation": true,
                           "Components": [
                             {
-                              "__type": "SkinnedModelRenderer",
-                              "__enabled": true,
+                              "__type": "Sandbox.SkinnedModelRenderer",
+                              "__guid": "1cede8c5-a7f6-451c-bae7-5b6108d82390",
                               "BodyGroups": 18446744073709551615,
-                              "BoneMergeTarget": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                              "BoneMergeTarget": {
+                                "_type": "component",
+                                "component_id": "bfefe278-855c-49c6-b7ce-66e0cd3ea494",
+                                "go": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                                "component_type": "SkinnedModelRenderer"
+                              },
                               "CreateBoneObjects": false,
-                              "MaterialGroup": null,
-                              "MaterialOverride": null,
                               "Model": "models/citizen_clothes/glasses/party_glasses/mesh/party_glasses.vmdl",
                               "RenderType": "On",
                               "Tint": "1,1,1,1"
@@ -594,20 +697,25 @@
                           ]
                         },
                         {
-                          "Id": "d6ebe670-45a4-4f1b-b736-5da4f9d06983",
+                          "__guid": "d6ebe670-45a4-4f1b-b736-5da4f9d06983",
                           "Name": "Object",
                           "Position": "0,0,0",
                           "Rotation": "0,0,-1,-0.0000006397578",
                           "Enabled": true,
+                          "NetworkMode": 2,
+                          "NetworkInterpolation": true,
                           "Components": [
                             {
-                              "__type": "SkinnedModelRenderer",
-                              "__enabled": true,
+                              "__type": "Sandbox.SkinnedModelRenderer",
+                              "__guid": "31bc95c2-f3ed-45c4-8ecc-fc5920d9196a",
                               "BodyGroups": 18446744073709551615,
-                              "BoneMergeTarget": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                              "BoneMergeTarget": {
+                                "_type": "component",
+                                "component_id": "bfefe278-855c-49c6-b7ce-66e0cd3ea494",
+                                "go": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                                "component_type": "SkinnedModelRenderer"
+                              },
                               "CreateBoneObjects": false,
-                              "MaterialGroup": null,
-                              "MaterialOverride": null,
                               "Model": "models/citizen_clothes/shirt/tanktop/models/tanktop.vmdl",
                               "RenderType": "On",
                               "Tint": "1,1,1,1"
@@ -615,20 +723,25 @@
                           ]
                         },
                         {
-                          "Id": "457dbf1b-4ce5-4de7-97a6-a2738d07542b",
+                          "__guid": "457dbf1b-4ce5-4de7-97a6-a2738d07542b",
                           "Name": "Object",
                           "Position": "0,0,0",
                           "Rotation": "0,0,-1,-0.0000006397578",
                           "Enabled": true,
+                          "NetworkMode": 2,
+                          "NetworkInterpolation": true,
                           "Components": [
                             {
-                              "__type": "SkinnedModelRenderer",
-                              "__enabled": true,
+                              "__type": "Sandbox.SkinnedModelRenderer",
+                              "__guid": "1a26b81b-51f3-493b-bc58-a47ebf8743a1",
                               "BodyGroups": 18446744073709551615,
-                              "BoneMergeTarget": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                              "BoneMergeTarget": {
+                                "_type": "component",
+                                "component_id": "bfefe278-855c-49c6-b7ce-66e0cd3ea494",
+                                "go": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                                "component_type": "SkinnedModelRenderer"
+                              },
                               "CreateBoneObjects": false,
-                              "MaterialGroup": null,
-                              "MaterialOverride": null,
                               "Model": "models/citizen_clothes/trousers/trackiebottoms/models/trackie_bottoms_black.vmdl",
                               "RenderType": "On",
                               "Tint": "1,1,1,1"
@@ -636,20 +749,25 @@
                           ]
                         },
                         {
-                          "Id": "17c91b96-abe1-4445-bf32-ea4fae92890b",
+                          "__guid": "17c91b96-abe1-4445-bf32-ea4fae92890b",
                           "Name": "Object",
                           "Position": "0,0,0",
                           "Rotation": "0,0,-1,-0.0000006397578",
                           "Enabled": true,
+                          "NetworkMode": 2,
+                          "NetworkInterpolation": true,
                           "Components": [
                             {
-                              "__type": "SkinnedModelRenderer",
-                              "__enabled": true,
+                              "__type": "Sandbox.SkinnedModelRenderer",
+                              "__guid": "584d2585-ba85-4fd8-86c6-0a7fd727f636",
                               "BodyGroups": 18446744073709551615,
-                              "BoneMergeTarget": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                              "BoneMergeTarget": {
+                                "_type": "component",
+                                "component_id": "bfefe278-855c-49c6-b7ce-66e0cd3ea494",
+                                "go": "42eacb9a-d8f8-4ae7-b150-b2094197bbbe",
+                                "component_type": "SkinnedModelRenderer"
+                              },
                               "CreateBoneObjects": false,
-                              "MaterialGroup": null,
-                              "MaterialOverride": null,
                               "Model": "models/citizen_clothes/shoes/trainers/trainers.vmdl",
                               "RenderType": "On",
                               "Tint": "1,1,1,1"
@@ -659,47 +777,56 @@
                       ]
                     },
                     {
-                      "Id": "76c11500-454b-4975-b27e-9fed5725b9f2",
+                      "__guid": "76c11500-454b-4975-b27e-9fed5725b9f2",
                       "Name": "LeftHand",
                       "Position": "0,0,0",
-                      "Enabled": true
+                      "Enabled": true,
+                      "NetworkMode": 2,
+                      "NetworkInterpolation": true
                     },
                     {
-                      "Id": "f3ab2e80-bae0-4b4c-bdd5-71d79a047c37",
+                      "__guid": "f3ab2e80-bae0-4b4c-bdd5-71d79a047c37",
                       "Name": "RightHand",
                       "Position": "0,0,0",
-                      "Enabled": true
+                      "Enabled": true,
+                      "NetworkMode": 2,
+                      "NetworkInterpolation": true
                     },
                     {
-                      "Id": "20eec2dc-53b5-41ba-be10-fe857c612d50",
+                      "__guid": "20eec2dc-53b5-41ba-be10-fe857c612d50",
                       "Name": "LeftFoot",
                       "Position": "0,0,0",
                       "Rotation": "-0.3098208,0.6880938,0.572384,0.3208056",
-                      "Enabled": true
+                      "Enabled": true,
+                      "NetworkMode": 2,
+                      "NetworkInterpolation": true
                     },
                     {
-                      "Id": "17b4787f-1a58-4800-a43d-cb868af21f82",
+                      "__guid": "17b4787f-1a58-4800-a43d-cb868af21f82",
                       "Name": "RightFoot",
                       "Position": "0,0,0",
                       "Rotation": "-0.3098208,0.6880938,0.572384,0.3208056",
-                      "Enabled": true
+                      "Enabled": true,
+                      "NetworkMode": 2,
+                      "NetworkInterpolation": true
                     }
                   ]
                 }
               ]
             },
             {
-              "Id": "14566cdb-b92d-4181-bbde-434d01d76f36",
+              "__guid": "14566cdb-b92d-4181-bbde-434d01d76f36",
               "Name": "Pad-3-2",
               "Position": "0,-32,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "b6bcd2d8-d052-4ba1-9225-8297bbd36e2e",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -708,17 +835,18 @@
               ]
             },
             {
-              "Id": "7f6b665a-2fc3-4037-9eff-2a361077ae32",
+              "__guid": "7f6b665a-2fc3-4037-9eff-2a361077ae32",
               "Name": "Pad-4-2",
               "Position": "0,-64,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "209f8a52-ec0e-4aea-a765-1d7d58260acf",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -727,17 +855,18 @@
               ]
             },
             {
-              "Id": "b11b2017-3702-4cde-9c90-42dee32834eb",
+              "__guid": "b11b2017-3702-4cde-9c90-42dee32834eb",
               "Name": "Pad-0-3",
               "Position": "-32,64,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "5ee0e119-8394-481a-acbb-77d7e5db31ab",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -746,17 +875,18 @@
               ]
             },
             {
-              "Id": "75cec95f-098c-4fcf-bc00-c7fb733f0b24",
+              "__guid": "75cec95f-098c-4fcf-bc00-c7fb733f0b24",
               "Name": "Pad-1-3",
               "Position": "-32,32,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "d263dd0c-b672-4989-9ea0-351fc360e656",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -765,17 +895,18 @@
               ]
             },
             {
-              "Id": "f87f7e13-cc6a-4354-9707-e5cacf95ec84",
+              "__guid": "f87f7e13-cc6a-4354-9707-e5cacf95ec84",
               "Name": "Pad-2-3",
               "Position": "-32,0,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "ad7c63fd-9215-4c5e-8438-af5adccd0516",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -784,17 +915,18 @@
               ]
             },
             {
-              "Id": "6e9333e0-5921-4d94-83fe-c81e030717a6",
+              "__guid": "6e9333e0-5921-4d94-83fe-c81e030717a6",
               "Name": "Pad-3-3",
               "Position": "-32,-32,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "c2bb0b6d-ee17-4e2c-879b-f444ff992cb9",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -803,17 +935,18 @@
               ]
             },
             {
-              "Id": "da828fa3-674c-4ae9-811a-f065bcb0691a",
+              "__guid": "da828fa3-674c-4ae9-811a-f065bcb0691a",
               "Name": "Pad-4-3",
               "Position": "-32,-64,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "98bb3e86-93e7-43a1-a1e7-bec23688a89c",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -822,17 +955,18 @@
               ]
             },
             {
-              "Id": "36276f37-95d6-496c-bc79-9f69cdc5e9c9",
+              "__guid": "36276f37-95d6-496c-bc79-9f69cdc5e9c9",
               "Name": "Pad-0-4",
               "Position": "-64,64,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "55f5b3bf-c77c-46ee-8d0c-807a915fc921",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -841,17 +975,18 @@
               ]
             },
             {
-              "Id": "49a95ded-7b71-48be-80fa-009a683579c4",
+              "__guid": "49a95ded-7b71-48be-80fa-009a683579c4",
               "Name": "Pad-1-4",
               "Position": "-64,32,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "f451ccc0-970a-4689-9fba-db183902ad87",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -860,17 +995,18 @@
               ]
             },
             {
-              "Id": "9b5fc908-54a6-4bcc-99a9-0568909b86a5",
+              "__guid": "9b5fc908-54a6-4bcc-99a9-0568909b86a5",
               "Name": "Pad-2-4",
               "Position": "-64,0,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "8daf2ed2-10df-48a2-a06c-c4f4c50cab8d",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -879,17 +1015,18 @@
               ]
             },
             {
-              "Id": "0154c182-aafd-4fb6-9c7b-ffaaebb0db9c",
+              "__guid": "0154c182-aafd-4fb6-9c7b-ffaaebb0db9c",
               "Name": "Pad-3-4",
               "Position": "-64,-32,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "1e908d3a-8462-46cf-9675-dd3c896eccee",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -898,17 +1035,18 @@
               ]
             },
             {
-              "Id": "8ce72345-3f3b-4884-b4bd-33436c835092",
+              "__guid": "8ce72345-3f3b-4884-b4bd-33436c835092",
               "Name": "Pad-4-4",
               "Position": "-64,-64,0",
               "Scale": "0.457,0.457,0.457",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "b613bab5-11f4-4d4b-9668-bf0079c2991f",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
                   "Model": "scifi/scifi_floor_basic.vmdl",
                   "RenderType": "On",
@@ -919,44 +1057,54 @@
           ]
         },
         {
-          "Id": "07cde167-ac19-4f8d-9604-59083e55a461",
+          "__guid": "07cde167-ac19-4f8d-9604-59083e55a461",
           "Name": "Visualizer Bars",
           "Rotation": "0,-0,-0.707107,0.7071065",
           "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "VisualizerBarManager",
-              "__enabled": true,
+              "__guid": "edfeea18-0047-42e3-8c5e-4ea05562c52f",
               "Amplitude": 0.7,
               "BarWavyness": 4,
               "BarWavynessAmplitude": 32,
               "BarWidth": 0.1,
-              "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
-              "Prefab": "9534d346-e127-4f08-aa85-2bb953630a7a",
+              "MaxAmplitude": 1,
+              "MusicComponent": {
+                "_type": "component",
+                "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+                "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                "component_type": "MusicManager"
+              },
+              "Prefab": {
+                "_type": "gameobject",
+                "go": "9534d346-e127-4f08-aa85-2bb953630a7a"
+              },
               "RingRadius": 400,
               "SpinOnBeat": 10,
               "WaveSpeed": 1
             },
             {
               "__type": "BarRotator",
-              "__enabled": true,
+              "__guid": "ed7b00a5-706e-4b3f-9ab2-eb50d3c37e09",
               "RotateSpeed": 0
             }
           ],
           "Children": [
             {
-              "Id": "9534d346-e127-4f08-aa85-2bb953630a7a",
+              "__guid": "9534d346-e127-4f08-aa85-2bb953630a7a",
               "Name": "Prefab",
               "Position": "0,331.8998,0",
               "Scale": "0.1,0.1,1",
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
-                  "__enabled": true,
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "d3ac352a-0b59-4fe2-9c18-1af59705c208",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": null,
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
                 }
@@ -965,39 +1113,48 @@
           ]
         },
         {
-          "Id": "af78329e-8d7c-4b90-b8cc-5b53a4a5dcb1",
+          "__guid": "af78329e-8d7c-4b90-b8cc-5b53a4a5dcb1",
           "Name": "Bars",
           "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Children": [
             {
-              "Id": "d6dcc2d7-f74c-46fc-96b7-1f166d34fac0",
+              "__guid": "d6dcc2d7-f74c-46fc-96b7-1f166d34fac0",
               "Name": "Bars",
               "Position": "0,-96,0",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Children": [
                 {
-                  "Id": "0a86b897-520f-4108-a443-ccc14afdcf7d",
+                  "__guid": "0a86b897-520f-4108-a443-ccc14afdcf7d",
                   "Name": "Bar1",
                   "Position": "0,0,0",
                   "Scale": "0.2,0.2,0.01",
                   "Tags": "bar",
                   "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
-                      "__type": "ModelRenderer",
-                      "__enabled": true,
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "f2693ef4-15b4-45d9-a0e5-acf98fad2824",
                       "BodyGroups": 18446744073709551615,
-                      "MaterialGroup": null,
-                      "MaterialOverride": null,
                       "Model": "models/dev/box.vmdl",
                       "RenderType": "On",
                       "Tint": "0.19802,1,0.10891,1"
                     },
                     {
                       "__type": "VisualizerReactor",
-                      "__enabled": true,
+                      "__guid": "e750554b-8513-4416-aa61-3514eef55ca8",
                       "Mode": "HistoryAverage",
-                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
                       "PositionFactor": "0,0,50",
                       "RotationFactor": "0,0,0",
                       "ScaleFactor": "0,0,2"
@@ -1005,28 +1162,33 @@
                   ]
                 },
                 {
-                  "Id": "a40f7555-3f87-4fae-a4e0-6f7a3770e82d",
+                  "__guid": "a40f7555-3f87-4fae-a4e0-6f7a3770e82d",
                   "Name": "Bar2",
                   "Position": "0,-16,0",
                   "Scale": "0.2,0.2,0.01",
                   "Tags": "bar",
                   "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
-                      "__type": "ModelRenderer",
-                      "__enabled": true,
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "25fad16a-5940-492a-a50e-f4e8cef51798",
                       "BodyGroups": 18446744073709551615,
-                      "MaterialGroup": null,
-                      "MaterialOverride": null,
                       "Model": "models/dev/box.vmdl",
                       "RenderType": "On",
                       "Tint": "0.10891,0.44752,1,1"
                     },
                     {
                       "__type": "VisualizerReactor",
-                      "__enabled": true,
+                      "__guid": "63a4cb7e-d86f-448e-a1d8-00a46806e6db",
                       "Mode": "TargetEnergy",
-                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
                       "PositionFactor": "0,0,50",
                       "RotationFactor": "0,0,0",
                       "ScaleFactor": "0,0,2"
@@ -1034,28 +1196,33 @@
                   ]
                 },
                 {
-                  "Id": "27955977-9282-4b7c-88b6-7bd56ef5314d",
+                  "__guid": "27955977-9282-4b7c-88b6-7bd56ef5314d",
                   "Name": "Bar3",
                   "Position": "0,-32,0",
                   "Scale": "0.2,0.2,0.01",
                   "Tags": "bar",
                   "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
-                      "__type": "ModelRenderer",
-                      "__enabled": true,
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "3f9d1764-c43d-4956-8c1f-85cd06406ae1",
                       "BodyGroups": 18446744073709551615,
-                      "MaterialGroup": null,
-                      "MaterialOverride": null,
                       "Model": "models/dev/box.vmdl",
                       "RenderType": "On",
                       "Tint": "1,0.10891,0.10891,1"
                     },
                     {
                       "__type": "VisualizerReactor",
-                      "__enabled": true,
+                      "__guid": "90f7cd11-1945-4a64-bcf5-45b93b742a84",
                       "Mode": "Energy",
-                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
                       "PositionFactor": "0,0,50",
                       "RotationFactor": "0,0,0",
                       "ScaleFactor": "0,0,2"
@@ -1065,35 +1232,42 @@
               ]
             },
             {
-              "Id": "6ada207e-2702-4e97-bcf8-1a3d09deeaab",
+              "__guid": "6ada207e-2702-4e97-bcf8-1a3d09deeaab",
               "Name": "Bars",
               "Position": "0,96,0",
               "Rotation": "0.0000000595997,-0.0000000005472119,1,-0.0000006397578",
               "Enabled": true,
+              "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Children": [
                 {
-                  "Id": "4c08a6fa-3d5b-4ee6-9ff7-c821bba0e1db",
+                  "__guid": "4c08a6fa-3d5b-4ee6-9ff7-c821bba0e1db",
                   "Name": "Bar1",
                   "Position": "0,0,0",
                   "Scale": "0.2,0.2,0.01",
                   "Tags": "bar",
                   "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
-                      "__type": "ModelRenderer",
-                      "__enabled": true,
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "e14bbc14-ea5c-406c-95fd-b314e4e2198b",
                       "BodyGroups": 18446744073709551615,
-                      "MaterialGroup": null,
-                      "MaterialOverride": null,
                       "Model": "models/dev/box.vmdl",
                       "RenderType": "On",
                       "Tint": "0.19802,1,0.10891,1"
                     },
                     {
                       "__type": "VisualizerReactor",
-                      "__enabled": true,
+                      "__guid": "14a39296-8cda-41e3-82ba-af138ae486e3",
                       "Mode": "HistoryAverage",
-                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
                       "PositionFactor": "0,0,50",
                       "RotationFactor": "0,0,0",
                       "ScaleFactor": "0,0,2"
@@ -1101,28 +1275,33 @@
                   ]
                 },
                 {
-                  "Id": "94876732-7fde-4f75-864d-6dcea2c2e461",
+                  "__guid": "94876732-7fde-4f75-864d-6dcea2c2e461",
                   "Name": "Bar2",
                   "Position": "0,-16,0",
                   "Scale": "0.2,0.2,0.01",
                   "Tags": "bar",
                   "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
-                      "__type": "ModelRenderer",
-                      "__enabled": true,
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "074874c8-5343-436f-9f93-30cbdf8d4b36",
                       "BodyGroups": 18446744073709551615,
-                      "MaterialGroup": null,
-                      "MaterialOverride": null,
                       "Model": "models/dev/box.vmdl",
                       "RenderType": "On",
                       "Tint": "0.10891,0.44752,1,1"
                     },
                     {
                       "__type": "VisualizerReactor",
-                      "__enabled": true,
+                      "__guid": "e8e4156a-d2e4-472c-ae09-3ef9b5037bcb",
                       "Mode": "TargetEnergy",
-                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
                       "PositionFactor": "0,0,50",
                       "RotationFactor": "0,0,0",
                       "ScaleFactor": "0,0,2"
@@ -1130,28 +1309,33 @@
                   ]
                 },
                 {
-                  "Id": "be0015b0-0921-4b52-b0f3-e2e15b11bf8f",
+                  "__guid": "be0015b0-0921-4b52-b0f3-e2e15b11bf8f",
                   "Name": "Bar3",
                   "Position": "0,-32,0",
                   "Scale": "0.2,0.2,0.01",
                   "Tags": "bar",
                   "Enabled": true,
+                  "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
-                      "__type": "ModelRenderer",
-                      "__enabled": true,
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "8fbe4b50-b86a-4282-b662-c1bfe1d88440",
                       "BodyGroups": 18446744073709551615,
-                      "MaterialGroup": null,
-                      "MaterialOverride": null,
                       "Model": "models/dev/box.vmdl",
                       "RenderType": "On",
                       "Tint": "1,0.10891,0.10891,1"
                     },
                     {
                       "__type": "VisualizerReactor",
-                      "__enabled": true,
+                      "__guid": "81f93fcb-7502-45f6-a415-c101c48478e1",
                       "Mode": "Energy",
-                      "MusicComponent": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
                       "PositionFactor": "0,0,50",
                       "RotationFactor": "0,0,0",
                       "ScaleFactor": "0,0,2"
@@ -1165,14 +1349,16 @@
       ]
     },
     {
-      "Id": "32b71629-697e-4325-9c12-c9c66f731d8d",
+      "__guid": "32b71629-697e-4325-9c12-c9c66f731d8d",
       "Name": "Screen UI",
       "Position": "130.0225,116.6893,14.47157",
       "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
-          "__type": "ScreenPanel",
-          "__enabled": true,
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "5ba6fe15-aabf-4283-bd9d-7af31a4c2c99",
           "AutoScreenScale": true,
           "Opacity": 1,
           "Scale": 1,
@@ -1180,29 +1366,79 @@
         },
         {
           "__type": "DancePanel",
-          "__enabled": true,
-          "BarManager": "07cde167-ac19-4f8d-9604-59083e55a461",
-          "BarRotator": "07cde167-ac19-4f8d-9604-59083e55a461",
-          "Bloom": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
-          "DancePad": "ea93b873-739b-4f77-8f2c-a4f731738685",
-          "MusicManager": "1179014e-db0a-49c2-bd61-3e3085eb9963",
-          "Pixelate": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
-          "Sharpen": "ad987df2-d5f0-45ef-9701-92ab0c410c84"
+          "__guid": "b37d3139-9570-480f-9d51-c22676009a48",
+          "BarManager": {
+            "_type": "component",
+            "component_id": "edfeea18-0047-42e3-8c5e-4ea05562c52f",
+            "go": "07cde167-ac19-4f8d-9604-59083e55a461",
+            "component_type": "VisualizerBarManager"
+          },
+          "BarRotator": {
+            "_type": "component",
+            "component_id": "ed7b00a5-706e-4b3f-9ab2-eb50d3c37e09",
+            "go": "07cde167-ac19-4f8d-9604-59083e55a461",
+            "component_type": "BarRotator"
+          },
+          "Bloom": {
+            "_type": "component",
+            "component_id": "195746a4-12c9-4770-aea0-9fe20440d1f7",
+            "go": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
+            "component_type": "Bloom"
+          },
+          "DancePad": {
+            "_type": "component",
+            "component_id": "8a78555b-4e22-4d37-98fe-76eefb138717",
+            "go": "ea93b873-739b-4f77-8f2c-a4f731738685",
+            "component_type": "DancePadGridManager"
+          },
+          "MusicManager": {
+            "_type": "component",
+            "component_id": "2d9f9f45-1184-4e17-8831-162ab43c141e",
+            "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+            "component_type": "MusicManager"
+          },
+          "Pixelate": {
+            "_type": "component",
+            "component_id": "bff51e8d-f480-4ab9-a6e7-2dfd4f8061d7",
+            "go": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
+            "component_type": "Pixelate"
+          },
+          "Sharpen": {
+            "_type": "component",
+            "component_id": "5b8541d4-a035-43b8-b2f8-257676b65d71",
+            "go": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
+            "component_type": "Sharpen"
+          }
         }
       ]
     }
   ],
   "SceneProperties": {
     "FixedUpdateFrequency": 50,
-    "Lerping": true,
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
     "ThreadedAnimation": true,
     "TimeScale": 1,
-    "UseFixedUpdate": true
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
   },
   "Title": "visualizer",
   "Description": "",
+  "LastSaved": "2024-05-06T16:30:37.3667308-04:00",
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": [
     "degg.02_floor_basic",
     "dopamine.ridingacrossthestars"

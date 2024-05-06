@@ -1,0 +1,502 @@
+{
+  "__guid": "1047bb98-b86b-45af-bf17-a4bfa9be7f13",
+  "GameObjects": [
+    {
+      "__guid": "ad987df2-d5f0-45ef-9701-92ab0c410c84",
+      "Name": "Main Camera",
+      "Position": "-300,0,100",
+      "Rotation": "-0.000000005658571,0.09493508,-0.00000000000000005481071,0.9954838",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "afd1f178-0ab2-4204-a596-1a35c96c1e8d",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        },
+        {
+          "__type": "Sandbox.Sharpen",
+          "__guid": "1ea6a22e-384e-4bce-ac7c-b026970b973e",
+          "Scale": 0.25
+        },
+        {
+          "__type": "Sandbox.Bloom",
+          "__guid": "262f22c2-a58f-433f-845e-c4f9a9a6f04c",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Additive",
+          "Strength": 1,
+          "Threshold": 0.02,
+          "ThresholdWidth": 0
+        },
+        {
+          "__type": "Sandbox.Pixelate",
+          "__guid": "2efcbe00-51f8-495c-9c47-708a6e05e706",
+          "Scale": 0
+        },
+        {
+          "__type": "PositionMusicHere",
+          "__guid": "898204ec-9e49-4275-bc66-0ccbe7fde916",
+          "MusicComponent": {
+            "_type": "component",
+            "component_id": "960d8195-f410-4622-8d74-a08a1cf627f9",
+            "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+            "component_type": "MusicManager"
+          }
+        }
+      ]
+    },
+    {
+      "__guid": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+      "Name": "Music Manager",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "MusicManager",
+          "__guid": "960d8195-f410-4622-8d74-a08a1cf627f9",
+          "Loop": true,
+          "PeakThreshold": 1.06,
+          "Url": "https://files.catbox.moe/sbexx1.mp3"
+        }
+      ]
+    },
+    {
+      "__guid": "9dbff4ae-8cef-49b6-9f6a-f5c00a5b7bc9",
+      "Name": "Music Manager (1)",
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "MusicManager",
+          "__guid": "d52d0975-6cab-49eb-b164-ffb8e4bf08df",
+          "Loop": true,
+          "PeakThreshold": 1.06,
+          "Url": "https://files.catbox.moe/3xqufp.mp3"
+        }
+      ]
+    },
+    {
+      "__guid": "156219c9-06dc-4beb-b33d-b4f96d7d54cb",
+      "Name": "Environment",
+      "Tags": "skybox",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "a6b61c5d-9b50-4ec0-8916-d80da60389be",
+          "SkyMaterial": "raw/ridingacrossthestars.vmat",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.EnvmapProbe",
+          "__guid": "42692a93-a16d-476a-825f-cca512a7c65f",
+          "Texture": "textures/cubemaps/default2.vtex",
+          "Bounds": {
+            "Mins": "-512,-512,-512",
+            "Maxs": "512,512,512"
+          },
+          "DelayBetweenUpdates": 0.1,
+          "Feathering": 0.02,
+          "FrameInterval": 5,
+          "MaxDistance": 512,
+          "Projection": "Sphere",
+          "RenderDynamically": false,
+          "TintColor": "1,1,1,1",
+          "UpdateStrategy": "OnEnabled",
+          "ZFar": 4096,
+          "ZNear": 16
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "dff7bd7d-6e97-4f76-b4d0-456e2ba102fb",
+          "Name": "Directional Light",
+          "Position": "0,0,200",
+          "Rotation": "-0.2459843,0.5938584,0.2931525,0.7077326",
+          "Tags": "light_directional,light",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.DirectionalLight",
+              "__guid": "8c97c978-ef02-42da-b436-1cc9ff60a6f0",
+              "FogMode": "Enabled",
+              "FogStrength": 1,
+              "LightColor": "0.91373,0.98039,1,1",
+              "Shadows": true,
+              "SkyColor": "0.43378,0.63964,0.74257,1"
+            }
+          ]
+        },
+        {
+          "__guid": "07cde167-ac19-4f8d-9604-59083e55a461",
+          "Name": "Visualizer Bars",
+          "Rotation": "0,-0,-0.707107,0.7071065",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "VisualizerBarManager",
+              "__guid": "387cca30-9ac5-4968-8e64-32d27f13de6c",
+              "Amplitude": 0.4,
+              "BarWavyness": 4,
+              "BarWavynessAmplitude": 6.8999724,
+              "BarWidth": 0.1,
+              "MaxAmplitude": 1,
+              "MusicComponent": {
+                "_type": "component",
+                "component_id": "960d8195-f410-4622-8d74-a08a1cf627f9",
+                "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                "component_type": "MusicManager"
+              },
+              "Prefab": {
+                "_type": "gameobject",
+                "go": "9534d346-e127-4f08-aa85-2bb953630a7a"
+              },
+              "RingRadius": 193.69984,
+              "SpinOnBeat": 73.60017,
+              "WaveSpeed": 1
+            },
+            {
+              "__type": "BarRotator",
+              "__guid": "ff29f404-73c4-49f7-9a70-ddf347774395",
+              "RotateSpeed": 0
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "9534d346-e127-4f08-aa85-2bb953630a7a",
+              "Name": "Prefab",
+              "Position": "0,331.8998,0",
+              "Scale": "0.1,0.1,1",
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.ModelRenderer",
+                  "__guid": "d490c626-534e-47ad-830c-1f512066a83c",
+                  "BodyGroups": 18446744073709551615,
+                  "Model": "models/dev/box.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "af78329e-8d7c-4b90-b8cc-5b53a4a5dcb1",
+          "Name": "Bars",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Children": [
+            {
+              "__guid": "d6dcc2d7-f74c-46fc-96b7-1f166d34fac0",
+              "Name": "Bars",
+              "Position": "0,-96,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "__guid": "0a86b897-520f-4108-a443-ccc14afdcf7d",
+                  "Name": "Bar1",
+                  "Position": "0,0,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "bf896202-9bc5-4285-bbb0-4849a2e9e14e",
+                      "BodyGroups": 18446744073709551615,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "0.19802,1,0.10891,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__guid": "4da60863-d34a-4697-894c-4d68bc406239",
+                      "Mode": "HistoryAverage",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "960d8195-f410-4622-8d74-a08a1cf627f9",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                },
+                {
+                  "__guid": "a40f7555-3f87-4fae-a4e0-6f7a3770e82d",
+                  "Name": "Bar2",
+                  "Position": "0,-16,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "2ad818cb-04e3-45f0-b743-205116233e12",
+                      "BodyGroups": 18446744073709551615,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "0.10891,0.44752,1,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__guid": "66318ec5-a5ee-49ce-b267-caa6076c5d60",
+                      "Mode": "TargetEnergy",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "960d8195-f410-4622-8d74-a08a1cf627f9",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                },
+                {
+                  "__guid": "27955977-9282-4b7c-88b6-7bd56ef5314d",
+                  "Name": "Bar3",
+                  "Position": "0,-32,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "4e129ce9-9efe-4aaf-8d9c-1e5b6890f9bc",
+                      "BodyGroups": 18446744073709551615,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "1,0.10891,0.10891,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__guid": "7ae8cf2d-2af9-4564-b0b9-df1791ca61b8",
+                      "Mode": "Energy",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "960d8195-f410-4622-8d74-a08a1cf627f9",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "__guid": "6ada207e-2702-4e97-bcf8-1a3d09deeaab",
+              "Name": "Bars",
+              "Position": "0,96,0",
+              "Rotation": "0.0000000595997,-0.0000000005472119,1,-0.0000006397578",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Children": [
+                {
+                  "__guid": "4c08a6fa-3d5b-4ee6-9ff7-c821bba0e1db",
+                  "Name": "Bar1",
+                  "Position": "0,0,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "97355734-d17d-48a8-bac9-2aff4cf66eb2",
+                      "BodyGroups": 18446744073709551615,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "0.19802,1,0.10891,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__guid": "cb7be940-8d7e-4d46-a840-0c4c1a1a68fb",
+                      "Mode": "HistoryAverage",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "960d8195-f410-4622-8d74-a08a1cf627f9",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                },
+                {
+                  "__guid": "94876732-7fde-4f75-864d-6dcea2c2e461",
+                  "Name": "Bar2",
+                  "Position": "0,-16,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "958ac884-55c0-4fa5-9655-f22a8a768c41",
+                      "BodyGroups": 18446744073709551615,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "0.10891,0.44752,1,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__guid": "47459d5f-77ba-4fd0-af48-3ddf5790f5c7",
+                      "Mode": "TargetEnergy",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "960d8195-f410-4622-8d74-a08a1cf627f9",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                },
+                {
+                  "__guid": "be0015b0-0921-4b52-b0f3-e2e15b11bf8f",
+                  "Name": "Bar3",
+                  "Position": "0,-32,0",
+                  "Scale": "0.2,0.2,0.01",
+                  "Tags": "bar",
+                  "Enabled": true,
+                  "NetworkMode": 2,
+                  "Components": [
+                    {
+                      "__type": "Sandbox.ModelRenderer",
+                      "__guid": "1aa2fe92-d37d-4d74-8184-a2552681aa36",
+                      "BodyGroups": 18446744073709551615,
+                      "Model": "models/dev/box.vmdl",
+                      "RenderType": "On",
+                      "Tint": "1,0.10891,0.10891,1"
+                    },
+                    {
+                      "__type": "VisualizerReactor",
+                      "__guid": "a2209660-b205-440c-89ea-dc1fe0154405",
+                      "Mode": "Energy",
+                      "MusicComponent": {
+                        "_type": "component",
+                        "component_id": "960d8195-f410-4622-8d74-a08a1cf627f9",
+                        "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+                        "component_type": "MusicManager"
+                      },
+                      "PositionFactor": "0,0,50",
+                      "RotationFactor": "0,0,0",
+                      "ScaleFactor": "0,0,2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "90aea705-e998-4084-b5fc-83ea1c2a3263",
+      "Name": "ScreenPanel",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "1be96fcf-338a-4fea-8e79-46012aca9478",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        },
+        {
+          "__type": "SpectrogramPanel",
+          "__guid": "617cdd47-b133-48a2-88fe-c1e139c94562",
+          "MusicManager": {
+            "_type": "component",
+            "component_id": "960d8195-f410-4622-8d74-a08a1cf627f9",
+            "go": "1179014e-db0a-49c2-bd61-3e3085eb9963",
+            "component_type": "MusicManager"
+          },
+          "UpdateRate": 0
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "visualizer",
+  "Description": "",
+  "LastSaved": "2024-04-21T08:13:41.5461627-04:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": [
+    "dopamine.ridingacrossthestars"
+  ]
+}
